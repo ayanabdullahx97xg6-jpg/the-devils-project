@@ -128,7 +128,7 @@ button:focus-visible, input:focus-visible, select:focus-visible, textarea:focus-
 .hero-row { display: flex; align-items: flex-start; justify-content: space-between; gap: 28px; margin-bottom: 29px; }
 .section-kicker { display: flex; align-items: center; gap: 9px; margin: 0 0 13px; color: #ff3329; font-size: 8px; text-shadow: 0 0 8px #ff1e1666; }
 .section-kicker::before { width: 22px; height: 2px; background: var(--red); content: ''; box-shadow: 0 0 8px var(--red); }
-.hero-title { margin: 0; font-size: clamp(34px, 5vw, 53px); font-weight: 600; letter-spacing: .03em; line-height: .98; animation: text-glitch 6s infinite; }
+.hero-title { margin: 0; font-size: clamp(34px, 5vw, 53px); font-weight: 600; letter-spacing: .03em; line-height: .98; animation: demonic-pulse 2.5s ease-in-out infinite, text-glitch 4s infinite; }
 .hero-title .red { color: var(--red-bright); text-shadow: 0 0 20px #ff1e16cc, 0 0 40px #ff1e1666; }
 .hero-subtitle { margin: 12px 0 0; color: #ba9992; font-family: var(--mono); font-size: 10px; letter-spacing: .2em; text-shadow: 0 0 8px rgba(255,30,22,0.4); }
 
@@ -151,7 +151,7 @@ button:focus-visible, input:focus-visible, select:focus-visible, textarea:focus-
 .search-input::placeholder { color: #8a6660; }
 .search-input:focus { outline: none; }
 
-.search-button { display: flex; align-items: center; justify-content: center; gap: 10px; min-width: 132px; height: 40px; border: 1px solid #ff3329; background: #8f1912; color: white; font: 9px var(--mono); letter-spacing: .1em; cursor: pointer; transition: background .2s, box-shadow .2s, transform .2s; box-shadow: 0 0 15px #ff1e1644; }
+.search-button { display: flex; align-items: center; justify-content: center; gap: 10px; min-width: 132px; height: 40px; border: 1px solid #ff3329; background: #8f1912; color: white; font: 9px var(--mono); letter-spacing: .1em; cursor: pointer; transition: background .2s, box-shadow .2s, transform .2s; animation: button-terror 3s infinite; }
 .search-button:hover { transform: translateY(-1px); background: #b82219; box-shadow: 0 0 30px #ff1e1688; }
 .search-button span { font-size: 14px; }
 
@@ -216,7 +216,7 @@ button:focus-visible, input:focus-visible, select:focus-visible, textarea:focus-
 .result-list { display: grid; gap: 8px; }
 
 .result-card { position: relative; border: 1px solid #421814; padding: 16px 17px; background: #0c0505; transition: border-color .2s, background .2s, box-shadow .2s; }
-.result-card:hover { border-color: #ff3329; background: #140807; box-shadow: 0 0 20px #ff1e1633; }
+.result-card:hover { border-color: #ff3329 !important; background: #140807; animation: card-glitch 0.2s infinite alternate; box-shadow: 0 0 25px #ff1e1688, inset 0 0 15px #ff1e1644; }
 .result-card-head { display: flex; align-items: center; justify-content: space-between; gap: 14px; margin-bottom: 11px; }
 .data-tag { color: #ff5247; font-size: 7px; text-shadow: 0 0 6px #ff1e16; }
 .result-meta { color: #94716a; font-size: 7px; }
@@ -285,7 +285,7 @@ button:focus-visible, input:focus-visible, select:focus-visible, textarea:focus-
 .sidebar-collapsed .sidebar-footer { display: flex; justify-content: center; }
 .sidebar-collapsed .collapse-glyph { transform: rotate(180deg); }
 
-/* CREEPY HORROR KEYFRAMES */
+/* HORROR & CREEPY KEYFRAMES */
 @keyframes pulse { 0%, 100% { opacity: 1; box-shadow: 0 0 12px #ff1e16, 0 0 24px #ff1e16; } 50% { opacity: 0.3; box-shadow: 0 0 2px #ff1e16; } }
 @keyframes creepy-pulse { 0%, 100% { filter: drop-shadow(0 0 15px #ff1e16aa); } 50% { filter: drop-shadow(0 0 35px #ff3329ff) brightness(1.2); } }
 @keyframes core-flicker { 0%, 100% { opacity: 1; } 47% { opacity: 0.8; } 48% { opacity: 0.3; } 49% { opacity: 0.9; } 52% { opacity: 0.5; } 53% { opacity: 1; } }
@@ -293,8 +293,27 @@ button:focus-visible, input:focus-visible, select:focus-visible, textarea:focus-
 @keyframes emblem-spin { to { transform: rotate(360deg); } }
 @keyframes sweep { 0%, 100% { transform: translateY(0); opacity: .2; } 50% { transform: translateY(130px); opacity: .9; } }
 @keyframes intro-rise { from { opacity: 0; transform: translateY(17px); filter: blur(6px); } to { opacity: 1; transform: translateY(0); filter: blur(0); } }
-@keyframes page-in { from { opacity: 0; transform: translateY(7px); filter: blur(2px); } to { opacity: 1; transform: translateY(0); filter: blur(0); } }
+@keyframes page-in { from { opacity: 0; transform: translateY(5px); } to { opacity: 1; transform: translateY(0); } }
 @keyframes scan-progress { 0% { transform: translateX(-120%); } 100% { transform: translateX(420%); } }
+
+@keyframes card-glitch {
+  0% { transform: translate(0, 0) skew(0deg); }
+  20% { transform: translate(-2px, 2px) skew(-1deg); }
+  40% { transform: translate(2px, -1px) skew(1deg); }
+  60% { transform: translate(-1px, -2px) skew(0deg); }
+  80% { transform: translate(2px, 2px) skew(1deg); }
+  100% { transform: translate(0, 0) skew(0deg); }
+}
+
+@keyframes demonic-pulse {
+  0%, 100% { text-shadow: 0 0 10px #ff1e1633, 0 0 20px transparent; }
+  50% { text-shadow: 0 0 30px #ff1e16ff, 0 0 60px #ff3329aa, 0 0 90px #ff1e1655; transform: scale(1.01); }
+}
+
+@keyframes button-terror {
+  0%, 100% { box-shadow: 0 0 10px #ff1e1644; }
+  50% { box-shadow: 0 0 30px #ff1e16cc, inset 0 0 10px #ff3329; border-color: #fff; }
+}
 
 @media (max-width: 1050px) {
   :root { --sidebar-width: 220px; }
@@ -356,55 +375,4 @@ button:focus-visible, input:focus-visible, select:focus-visible, textarea:focus-
 }
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { scroll-behavior: auto !important; animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
-}
-/* --- CRAZY & SCARY HORROR ANIMATIONS --- */
-
-/* 1. Card Hover Glitch Effect */
-.result-card:hover {
-  animation: card-glitch 0.2s infinite alternate;
-  border-color: #ff1e16 !important;
-  box-shadow: 0 0 25px #ff1e1688, inset 0 0 15px #ff1e1644;
-}
-
-@keyframes card-glitch {
-  0% { transform: translate(0, 0) skew(0deg); }
-  20% { transform: translate(-2px, 2px) skew(-1deg); }
-  40% { transform: translate(2px, -1px) skew(1deg); }
-  60% { transform: translate(-1px, -2px) skew(0deg); }
-  80% { transform: translate(2px, 2px) skew(1deg); }
-  100% { transform: translate(0, 0) skew(0deg); }
-}
-
-/* 2. Demonic Heartbeat Pulse on Hero Title */
-.hero-title {
-  animation: demonic-pulse 2.5s ease-in-out infinite, text-glitch 4s infinite;
-}
-
-@keyframes demonic-pulse {
-  0%, 100% { text-shadow: 0 0 10px #ff1e1633, 0 0 20px transparent; }
-  50% { text-shadow: 0 0 30px #ff1e16ff, 0 0 60px #ff3329aa, 0 0 90px #ff1e1655; transform: scale(1.01); }
-}
-
-/* 3. Creepy Search Button Terror Glow */
-.search-button {
-  animation: button-terror 3s infinite;
-}
-
-@keyframes button-terror {
-  0%, 100% { box-shadow: 0 0 10px #ff1e1644; }
-  50% { box-shadow: 0 0 30px #ff1e16cc, inset 0 0 10px #ff3329; border-color: #fff; }
-}
-
-/* 4. Random Ghost Screen Flicker */
-@keyframes screen-flicker {
-  0%, 100% { opacity: 1; }
-  92% { opacity: 1; }
-  93% { opacity: 0.7; filter: invert(0.1); }
-  94% { opacity: 1; filter: none; }
-  96% { opacity: 0.85; }
-  97% { opacity: 1; }
-}
-
-body {
-  animation: screen-flicker 7s infinite;
 }
