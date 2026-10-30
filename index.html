@@ -3,12 +3,21 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="theme-color" content="#090909" />
-    <meta name="description" content="THE DEVIL'S PROJECT: a private research interface for curious minds." />
-    <title>THE DEVIL'S PROJECT</title>
+    <meta name="theme-color" content="#030202" />
+    <meta name="description" content="THE DEVIL'S PROJECT: EVERY QUESTION HAS A DARK SIDE." />
+    <title>THE DEVIL'S PROJECT - RESEARCH TERMINAL</title>
     <link rel="stylesheet" href="styles.css" />
   </head>
-  <body>
+  <body class="horror-body">
+    <!-- HAUNTED BACKGROUND WATERMARK RITUAL SYMBOL -->
+    <div class="occult-watermark" aria-hidden="true">
+      <svg viewBox="0 0 200 200">
+        <polygon points="100,10 190,170 10,170" fill="none" stroke="#ff0d00" stroke-width="1.5"/>
+        <polygon points="100,190 10,30 190,30" fill="none" stroke="#ff0d00" stroke-width="1.5"/>
+        <circle cx="100" cy="100" r="45" fill="none" stroke="#ff2214" stroke-width="1"/>
+      </svg>
+    </div>
+
     <div id="intro" class="intro" aria-label="Initialization sequence">
       <canvas id="particle-field" aria-hidden="true"></canvas>
       <div class="intro-noise" aria-hidden="true"></div>
@@ -22,14 +31,14 @@
           </svg>
           <i class="intro-sweep"></i>
         </div>
-        <p class="eyebrow intro-code">SYSTEM / INITIALIZATION <span>00<span id="intro-percent">00</span></span></p>
+        <p class="eyebrow intro-code">SYSTEM / INCANTATION <span>66<span id="intro-percent">00</span></span></p>
         <h1 class="intro-title">THE DEVIL'S<br /><span>PROJECT</span></h1>
-        <p class="intro-tagline">EVERY QUESTION HAS A DARK SIDE.</p>
+        <p class="intro-tagline">EVERY QUESTION HAS A DARK SIDE. NO LIES. JUST TRUTH.</p>
         <div class="intro-progress"><span id="intro-progress-fill"></span></div>
-        <p class="intro-status" id="intro-status">ESTABLISHING SECURE ENVIRONMENT</p>
+        <p class="intro-status" id="intro-status">SUMMONING RESEARCH MATRIX...</p>
       </div>
-      <button class="intro-skip" id="skip-intro" type="button">SKIP INTRO <span>↗</span></button>
-      <span class="intro-coordinate">LAT 00°00'00" / LONG 00°00'00"</span>
+      <button class="intro-skip" id="skip-intro" type="button">BREAK SEAL <span>↗</span></button>
+      <span class="intro-coordinate">LAT 66°66'66" / LONG 13°13'13"</span>
     </div>
 
     <div id="app" class="app-shell" aria-hidden="true">
@@ -39,11 +48,11 @@
           <div class="brand-mark" aria-hidden="true">
             <svg viewBox="0 0 40 40"><path d="M20 2 36 11v18L20 38 4 29V11L20 2Z"/><path d="M20 8v24M9 14l22 12M31 14 9 26"/><circle cx="20" cy="20" r="3"/></svg>
           </div>
-          <div class="brand-copy"><strong>DEVIL'S</strong><span>RESEARCH TERMINAL</span></div>
+          <div class="brand-copy"><strong>DEVIL'S</strong><span>OCCULT TERMINAL v1.01</span></div>
           <button class="icon-button sidebar-collapse" id="collapse-sidebar" type="button" aria-label="Collapse sidebar" title="Collapse sidebar"><span class="collapse-glyph">‹</span></button>
         </div>
         <div class="sidebar-scroll">
-          <p class="nav-label">INTELLIGENCE</p>
+          <p class="nav-label">DARK INTELLIGENCE</p>
           <nav class="primary-nav" aria-label="Primary navigation">
             <button class="nav-item active" data-page="home"><span class="nav-icon">⌂</span><span>Home</span><kbd>01</kbd></button>
             <button class="nav-item" data-page="search"><span class="nav-icon">⌕</span><span>Universal Search</span><kbd>02</kbd></button>
@@ -54,7 +63,7 @@
             <button class="nav-item" data-page="education"><span class="nav-icon">⌬</span><span>Education</span><kbd>07</kbd></button>
             <button class="nav-item" data-page="deep"><span class="nav-icon">◈</span><span>Deep Research</span><kbd>08</kbd></button>
           </nav>
-          <p class="nav-label nav-label-secondary">PERSONAL ARCHIVE</p>
+          <p class="nav-label nav-label-secondary">FORBIDDEN ARCHIVE</p>
           <nav class="primary-nav" aria-label="Personal archive">
             <button class="nav-item" data-page="saved"><span class="nav-icon">▣</span><span>Saved Files</span><kbd id="saved-count">00</kbd></button>
             <button class="nav-item" data-page="history"><span class="nav-icon">◷</span><span>History</span><kbd id="history-count">00</kbd></button>
@@ -62,8 +71,8 @@
           </nav>
         </div>
         <div class="sidebar-footer">
-          <div class="system-status"><span class="status-pulse"></span><span>LOCAL DEMO MODE</span><b>●</b></div>
-          <span class="sidebar-version">BUILD 0.9.7 / INTERFACE ONLY</span>
+          <div class="system-status"><span class="status-pulse"></span><span>REAL INFO / NO LIES</span><b>⚠</b></div>
+          <span class="sidebar-version">BUILD 6.6.6 / DEVIL'S CORE</span>
         </div>
       </aside>
 
@@ -77,11 +86,11 @@
           <div class="topbar-tools">
             <button class="command-button" id="command-search" type="button"><span>⌕</span><span>COMMAND SEARCH</span><kbd>CTRL K</kbd></button>
             <button class="icon-button top-settings" data-go="settings" type="button" aria-label="Settings" title="Settings">⚙</button>
-            <button class="profile-button" type="button" aria-label="Demo profile"><span class="profile-mark">D</span><span class="profile-meta"><b>OPERATOR</b><small>GUEST ACCESS</small></span><i>⌄</i></button>
+            <button class="profile-button" type="button" aria-label="Demo profile"><span class="profile-mark">☠</span><span class="profile-meta"><b>OVERSEER</b><small>UNRESTRICTED</small></span><i>⌄</i></button>
           </div>
         </header>
         <div class="page-host" id="page-host" aria-live="polite"></div>
-        <footer class="app-footer"><span>THE DEVIL'S PROJECT <i> / </i> PRIVATE RESEARCH INTERFACE</span><span>NO EXTERNAL SOURCES CONNECTED <b>●</b></span></footer>
+        <footer class="app-footer"><span>THE DEVIL'S PROJECT <i> / </i> UNFILTERED TRUTH</span><span>SECURE CONNECTION <b>☠</b></span></footer>
       </main>
       <div id="toast" class="toast" role="status" aria-live="polite"></div>
     </div>
