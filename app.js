@@ -1,5 +1,5 @@
 // =========================================================
-// THE DEVIL'S PROJECT - TERMINAL ENGINE (ENHANCED CREEPY & SCARY VIBE)
+// THE DEVIL'S PROJECT - TERMINAL ENGINE (ENHANCED CREEPY VIBE)
 // =========================================================
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -49,7 +49,7 @@ function initIntro() {
         "ESTABLISHING SECURE DARK TUNNEL...",
         "BYPASSING MAINFRAME FIREWALLS...",
         "DECRYPTING RESTRICTED INTELLIGENCE...",
-        "WELCOME TO THE UNDERWORLD."
+        "SYSTEM READY. ENTER AT YOUR OWN RISK."
     ];
 
     let progress = 0;
@@ -90,7 +90,7 @@ function initIntro() {
     }
 }
 
-// --- PARTICLE BACKGROUND CANVAS (BLOOD RED EMBERS) ---
+// --- PARTICLE BACKGROUND CANVAS (BLOOD RED GLOW EMBERS) ---
 function initParticleCanvas() {
     const canvas = document.getElementById('particle-field');
     if (!canvas) return;
@@ -103,21 +103,21 @@ function initParticleCanvas() {
         height = canvas.height = window.innerHeight;
     });
 
-    const particles = Array.from({ length: 60 }, () => ({
+    const particles = Array.from({ length: 55 }, () => ({
         x: Math.random() * width,
         y: Math.random() * height,
         size: Math.random() * 1.8 + 0.4,
-        speedY: (Math.random() * 0.6 + 0.2) * -1,
-        speedX: (Math.random() - 0.5) * 0.3,
+        speedY: (Math.random() * 0.5 + 0.1) * -1,
+        speedX: (Math.random() - 0.5) * 0.2,
         opacity: Math.random() * 0.7 + 0.2
     }));
 
     function draw() {
         ctx.clearRect(0, 0, width, height);
-        ctx.fillStyle = '#ff0000';
+        ctx.fillStyle = '#f34237';
         particles.forEach(p => {
             ctx.globalAlpha = p.opacity;
-            ctx.shadowBlur = 10;
+            ctx.shadowBlur = 12;
             ctx.shadowColor = '#ff0000';
             ctx.fillRect(p.x, p.y, p.size, p.size);
             p.y += p.speedY;
