@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#090909" />
+    <meta name="description" content="THE DEVIL'S PROJECT: a private research interface for curious minds." />
+    <title>THE DEVIL'S PROJECT</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div id="intro" class="intro" aria-label="Initialization sequence">
+      <canvas id="particle-field" aria-hidden="true"></canvas>
+      <div class="intro-noise" aria-hidden="true"></div>
+      <div class="intro-core">
+        <div class="intro-emblem" aria-hidden="true">
+          <svg viewBox="0 0 120 120" role="presentation">
+            <path d="M60 8 104 34v52l-44 26L16 86V34L60 8Z" />
+            <path d="M60 26 88 43v34L60 94 32 77V43l28-17Z" />
+            <path d="M60 26v68M32 43l56 34M88 43 32 77" />
+            <circle cx="60" cy="60" r="7" />
+          </svg>
+          <i class="intro-sweep"></i>
+        </div>
+        <p class="eyebrow intro-code">SYSTEM / INITIALIZATION <span>00<span id="intro-percent">00</span></span></p>
+        <h1 class="intro-title">THE DEVIL'S<br /><span>PROJECT</span></h1>
+        <p class="intro-tagline">EVERY QUESTION HAS A DARK SIDE.</p>
+        <div class="intro-progress"><span id="intro-progress-fill"></span></div>
+        <p class="intro-status" id="intro-status">ESTABLISHING SECURE ENVIRONMENT</p>
+      </div>
+      <button class="intro-skip" id="skip-intro" type="button">SKIP INTRO <span>↗</span></button>
+      <span class="intro-coordinate">LAT 00°00'00" / LONG 00°00'00"</span>
+    </div>
+
+    <div id="app" class="app-shell" aria-hidden="true">
+      <div class="ambient-grid" aria-hidden="true"></div>
+      <aside class="sidebar" id="sidebar">
+        <div class="sidebar-brand">
+          <div class="brand-mark" aria-hidden="true">
+            <svg viewBox="0 0 40 40"><path d="M20 2 36 11v18L20 38 4 29V11L20 2Z"/><path d="M20 8v24M9 14l22 12M31 14 9 26"/><circle cx="20" cy="20" r="3"/></svg>
+          </div>
+          <div class="brand-copy"><strong>DEVIL'S</strong><span>RESEARCH TERMINAL</span></div>
+          <button class="icon-button sidebar-collapse" id="collapse-sidebar" type="button" aria-label="Collapse sidebar" title="Collapse sidebar"><span class="collapse-glyph">‹</span></button>
+        </div>
+        <div class="sidebar-scroll">
+          <p class="nav-label">INTELLIGENCE</p>
+          <nav class="primary-nav" aria-label="Primary navigation">
+            <button class="nav-item active" data-page="home"><span class="nav-icon">⌂</span><span>Home</span><kbd>01</kbd></button>
+            <button class="nav-item" data-page="search"><span class="nav-icon">⌕</span><span>Universal Search</span><kbd>02</kbd></button>
+            <button class="nav-item" data-page="people"><span class="nav-icon">◉</span><span>People Intelligence</span><kbd>03</kbd></button>
+            <button class="nav-item" data-page="scholarships"><span class="nav-icon">⌑</span><span>Scholarships</span><kbd>04</kbd></button>
+            <button class="nav-item" data-page="technology"><span class="nav-icon">⌘</span><span>Technology</span><kbd>05</kbd></button>
+            <button class="nav-item" data-page="organizations"><span class="nav-icon">▤</span><span>Organizations</span><kbd>06</kbd></button>
+            <button class="nav-item" data-page="education"><span class="nav-icon">⌬</span><span>Education</span><kbd>07</kbd></button>
+            <button class="nav-item" data-page="deep"><span class="nav-icon">◈</span><span>Deep Research</span><kbd>08</kbd></button>
+          </nav>
+          <p class="nav-label nav-label-secondary">PERSONAL ARCHIVE</p>
+          <nav class="primary-nav" aria-label="Personal archive">
+            <button class="nav-item" data-page="saved"><span class="nav-icon">▣</span><span>Saved Files</span><kbd id="saved-count">00</kbd></button>
+            <button class="nav-item" data-page="history"><span class="nav-icon">◷</span><span>History</span><kbd id="history-count">00</kbd></button>
+            <button class="nav-item" data-page="settings"><span class="nav-icon">⚙</span><span>Settings</span><kbd>•••</kbd></button>
+          </nav>
+        </div>
+        <div class="sidebar-footer">
+          <div class="system-status"><span class="status-pulse"></span><span>LOCAL DEMO MODE</span><b>●</b></div>
+          <span class="sidebar-version">BUILD 0.9.7 / INTERFACE ONLY</span>
+        </div>
+      </aside>
+
+      <div class="sidebar-scrim" id="sidebar-scrim"></div>
+      <main class="main-column">
+        <header class="topbar">
+          <div class="topbar-left">
+            <button class="icon-button mobile-menu" id="mobile-menu" type="button" aria-label="Open navigation">☰</button>
+            <span class="breadcrumb" id="breadcrumb">HOME <i>/</i> OVERVIEW</span>
+          </div>
+          <div class="topbar-tools">
+            <button class="command-button" id="command-search" type="button"><span>⌕</span><span>COMMAND SEARCH</span><kbd>CTRL K</kbd></button>
+            <button class="icon-button top-settings" data-go="settings" type="button" aria-label="Settings" title="Settings">⚙</button>
+            <button class="profile-button" type="button" aria-label="Demo profile"><span class="profile-mark">D</span><span class="profile-meta"><b>OPERATOR</b><small>GUEST ACCESS</small></span><i>⌄</i></button>
+          </div>
+        </header>
+        <div class="page-host" id="page-host" aria-live="polite"></div>
+        <footer class="app-footer"><span>THE DEVIL'S PROJECT <i> / </i> PRIVATE RESEARCH INTERFACE</span><span>NO EXTERNAL SOURCES CONNECTED <b>●</b></span></footer>
+      </main>
+      <div id="toast" class="toast" role="status" aria-live="polite"></div>
+    </div>
+    <script src="app.js" defer></script>
+  </body>
+</html>
